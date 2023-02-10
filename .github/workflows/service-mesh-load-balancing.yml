@@ -1,0 +1,15 @@
+name: Service Mesh Load Balancing
+on: [push]
+jobs:
+  lint:
+    name: Run linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: ^1.19.0
+      - uses: golangci/golangci-lint-action@v3
+        with:
+          version: v1.50.1
+          working-directory: service-mesh-load-balancing

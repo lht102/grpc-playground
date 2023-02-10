@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package transformer;
+option go_package = "github.com/lht102/grpc-playground/service-mesh-load-balancing/proto/transformer";
+
+service TransformerService {
+  rpc TransformNumber (TransformNumberRequest) returns (TransformNumberResponse) {}
+}
+
+message TransformNumberRequest {
+  int64 number = 1;
+}
+
+message TransformNumberResponse {
+  int64 result = 1;
+  string message = 2;
+}

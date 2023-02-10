@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package subtractor;
+option go_package = "github.com/lht102/grpc-playground/service-mesh-load-balancing/proto/subtractor";
+
+service SubtractorService {
+  rpc SubtractNumbers (SubtractNumbersRequest) returns (SubtractNumbersResponse) {}
+}
+
+message SubtractNumbersRequest {
+  repeated int64 numbers = 1;
+}
+
+message SubtractNumbersResponse {
+  int64 result = 1;
+  string message = 2;
+}

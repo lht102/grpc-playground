@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package adder;
+option go_package = "github.com/lht102/grpc-playground/service-mesh-load-balancing/proto/adder";
+
+service AdderService {
+  rpc AddNumbers(AddNumbersRequest) returns (AddNumbersResponse) {}
+}
+
+message AddNumbersRequest {
+  repeated int64 numbers = 1;
+}
+
+message AddNumbersResponse {
+  int64 result = 1;
+  string message = 2;
+}

@@ -1,0 +1,24 @@
+version: "3.5"
+services:
+  adder-api:
+    build:
+      context: .
+      target: adder-api
+    environment:
+      - "GRPC_PORT=8081"
+  subtractor-api:
+    build:
+      context: .
+      target: subtractor-api
+    environment:
+      - "GRPC_PORT=8081"
+  transformer-api:
+    build:
+      context: .
+      target: transformer-api
+    environment:
+      - "GRPC_PORT=8081"
+      - "ADDER_SERVICE_URL=adder-api:8081"
+      - "SUBTRACT_SERVICE_URL=subtractor-api:8081"
+    ports:
+      - 8081:8081
